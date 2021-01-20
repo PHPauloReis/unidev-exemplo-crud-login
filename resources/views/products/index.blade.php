@@ -45,10 +45,11 @@
 
     <div class="mt-5">
         {{ $products->appends([
-            'keyword' => request()->get('keyword'),
-            'price_from' => request()->get('price_from'),
-            'price_to' => request()->get('price_to'),
-            'order_by' => request()->get('order_by')
+            'action' => request('action'),
+            'keyword' => request('keyword'),
+            'price_from' => request('price_from'),
+            'price_to' => request('price_to'),
+            'order_by' => request('order_by')
         ])->links() }}
     </div>
 
