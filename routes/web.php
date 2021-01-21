@@ -25,6 +25,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+Route::any('/register', function() {
+    return redirect()->route('product.index');
+});
+
 Route::middleware(['auth'])->group(function() {
     Route::get('/user', [UserController::class, 'index']);
     Route::resource('product', ProductController::class);
