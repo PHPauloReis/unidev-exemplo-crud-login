@@ -21,10 +21,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav me-auto">
                     <a class="nav-link {{ (request()->segment(1) === 'product') ? 'active' : '' }}" href="{{ route('product.index') }}">Produtos</a>
                     <a class="nav-link {{ (request()->segment(1) === 'user') ? 'active' : '' }}" href="/user">Usuarios</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <a class="nav-link" href="#"
+                            onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                            Sair
+                        </a>
+                    </form>
                 </div>
+                <span class="navbar-text text-light">
+                    Bem-vindo: {{ auth()->user()->name }}
+                </span>
             </div>
         </div>
     </nav>
