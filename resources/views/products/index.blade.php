@@ -27,15 +27,15 @@
 
             @foreach($products as $product)
             <tr>
-                <td scope="col">{{ $product->id }}</td>
-                <td scope="col">{{ $product->name }}</td>
-                <td scope="col">{{ $product->price_formated }}</td>
-                <td scope="col">{{ $product->provider }}</td>
-                <td scope="col">{{ $product->expiration_date->format('d/m/Y') }}</td>
-                <td scope="col">{{ $product->manufacturing_date->format('d/m/Y') }}</td>
-                <td scope="col">
-                    <div class="btn btn-primary btn-sm">Editar</div>
-                    <div class="btn btn-danger btn-sm">Excluir</div>
+                <td>{{ $product->id }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->price_formated }}</td>
+                <td>{{ $product->provider }}</td>
+                <td>{{ $product->expiration_date->format('d/m/Y') }}</td>
+                <td>{{ $product->manufacturing_date->format('d/m/Y') }}</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="{{ route('product.edit', $product->id) }}">Editar</a>
+                    <a class="btn btn-danger btn-sm">Excluir</a>
                 </td>
             </tr>
             @endforeach

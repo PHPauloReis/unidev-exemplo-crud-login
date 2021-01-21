@@ -45,7 +45,14 @@
     <script>
 
         const order_by = document.querySelector('#order_by');
-        order_by.value = "{{ request()->get('order_by') }}";
+
+        if(order_by)
+            order_by.value = "{{ request()->get('order_by') }}";
+
+        const provider = document.querySelector('#provider');
+
+        if(provider)
+            provider.value = "{{ $product->provider ?? '' }}";
 
     </script>
 
