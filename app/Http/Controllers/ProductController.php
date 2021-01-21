@@ -65,8 +65,16 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(Product $product)
+    public function destroy(Request $request, Product $product)
     {
-        //
+        try {
+            $product->delete();
+
+            $request->session()->flash('success', 'Registro excluído com sucesso!');
+        } catch (\Exception $e) {
+            $request->session()->flash('error', 'Ocorreu um erro ao tentar excluir esses dados!');
+        }
+
+        return redirect()->back();
     }
 }

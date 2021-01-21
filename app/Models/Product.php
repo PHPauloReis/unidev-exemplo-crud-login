@@ -23,9 +23,13 @@ class Product extends Model
 
     public function filterAll($request)
     {
-        $products = Product::where('name', 'like', '%' . $request->get('keyword') . '%')
-            ->where('price', '>=', $request->get('price_from') ?? 0)
-            ->where('price', '<=', $request->get('price_to') ?? 0);
+        $products = Product::where('name', 'like', '%' . $request->get('keyword') . '%');
+
+        if(!empty($request->get('price_from')))
+            $products = $products->where('price', '>=', $request->get('price_from') ?? 0);
+
+        if(!empty($request->get('price_to')))
+            $products = $products->where('price', '<=', $request->get('price_to') ?? 0);
 
         switch ($request->get('order_by')) {
             case 'newest':

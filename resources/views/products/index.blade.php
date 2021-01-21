@@ -10,6 +10,8 @@
         </div>
     </div>
 
+    @include('layout.messages')
+
     <div class="table-responsive">
         <table class="table table-striped mt-5">
             <thead>
@@ -35,7 +37,7 @@
                 <td>{{ $product->manufacturing_date->format('d/m/Y') }}</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="{{ route('product.edit', $product->id) }}">Editar</a>
-                    <a class="btn btn-danger btn-sm">Excluir</a>
+                    <a class="btn btn-danger btn-sm" onclick="deleteInDatabase('{{ route('product.destroy', $product->id) }}')">Excluir</a>
                 </td>
             </tr>
             @endforeach
