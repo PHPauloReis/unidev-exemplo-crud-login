@@ -1,62 +1,60 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Aplicação de cadastro de produtos em Laravel
 
-## About Laravel
+Essa aplicação é basicamente um exemplo simples de **CRUD** com **Login** feito com o **Laravel Framework** para apresentar a ferramenta aos alunos do curso de férias: "**PHP e Laravel**", ministrado no semestre 2021.1 na **UNIME de Lauro de Freitas**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Recursos utilizados
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Migrations
+- Factories
+- Seeders
+- Named Routes
+- Resource Routes
+- Validação com Requests personalizados
+- Deploy no Heroku
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Como instalar a aplicação
 
-## Learning Laravel
+#### Passo 1:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Uma vez que você tenha o GIT instalado em seu computador, realize um clone do repositório.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    git clone https://github.com/PHPauloReis/unidev-exemplo-crud-login.git
 
-## Laravel Sponsors
+#### Passo 2:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Realize a instalação das dependências à partir do Composer
 
-### Premium Partners
+    composer update
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+#### Passo 3:
 
-## Contributing
+Crie seu arquivo .env usando como base o arquivo .env.exemple que consta no repositório. Basicamente você só precisará definir as informações do seu banco de dados
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    DB_CONNECTION=mysql  
+    DB_HOST=127.0.0.1  
+    DB_PORT=3306  
+    DB_DATABASE=nome_do_seu_banco_de_dados
+    DB_USERNAME=nome_do_seu_usuario_do_banco_de_dados
+    DB_PASSWORD=senha_do_seu_usuario_do_banco_de_dados
 
-## Code of Conduct
+#### Passo 4:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Gere uma chave APP_KEY para a sua aplicação usando o utilitário Artisan
 
-## Security Vulnerabilities
+    php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Passo 5:
 
-## License
+Realize a migração do seu banco de dados
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    php artisan migrate
+
+
+> Opcionalmente você pode querer alimentar sua aplicação com dados fakes. Para isso utilize o comando db:seed
+> `php artisan db:seed`
+
+## Licença de uso
+
+Tanto o Laravel quanto essa aplicação são softwares open-source licenciados sob a [Licença MIT](https://opensource.org/licenses/MIT).
