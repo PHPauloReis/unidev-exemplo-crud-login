@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\Provider;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -23,7 +24,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        $providers = Provider::all();
+
+        return view('products.create', compact('providers'));
     }
 
     public function store(ProductRequest $request)
@@ -48,7 +51,9 @@ class ProductController extends Controller
 
     public function edit(Request $request, Product $product)
     {
-        return view('products.edit', compact('product'));
+        $providers = Provider::all();
+
+        return view('products.edit', compact('product', 'providers'));
     }
 
     public function update(ProductRequest $request, Product $product)

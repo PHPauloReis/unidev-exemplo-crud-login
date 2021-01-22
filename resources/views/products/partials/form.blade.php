@@ -8,14 +8,11 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="price" class="form-label">Fornecedor</label>
-            <select name="provider" id="provider" class="form-select" required>
+            <select name="provider_id" id="provider_id" class="form-select" required>
                 <option value="">---</option>
-                <option>Bebidas do Nordeste</option>
-                <option>Limpeza do Brasil</option>
-                <option>Higiêne Brasileira</option>
-                <option>Tio João</option>
-                <option>Feijões Brasil</option>
-                <option>Arroz da Bahia</option>
+                @foreach($providers as $provider)
+                <option {{ (isset($product) && $provider->id === $product->provider_id) ? 'selected' : '' }} value="{{ $provider->id }}">{{ $provider->name }}</option>
+                @endforeach
             </select>
         </div>
     </div>

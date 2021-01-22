@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'provider', 'price', 'manufacturing_date', 'expiration_date'];
+    protected $fillable = ['name', 'provider_id', 'price', 'manufacturing_date', 'expiration_date'];
 
     public function getPriceFormatedAttribute()
     {
@@ -47,6 +47,11 @@ class Product extends Model
         }
 
         return $products->paginate(10);
+    }
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class);
     }
 }
 

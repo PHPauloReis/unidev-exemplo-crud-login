@@ -19,7 +19,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome do produto</th>
                 <th scope="col">Preço</th>
-                <th scope="col">Fabricante</th>
+                <th scope="col">Fornecedor</th>
                 <th scope="col">Validade</th>
                 <th scope="col">Fabricação</th>
                 <th scope="col" width="150"></th>
@@ -32,7 +32,7 @@
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price_formated }}</td>
-                <td>{{ $product->provider }}</td>
+                <td>{{ $product->provider->name }}</td>
                 <td>{{ $product->expiration_date->format('d/m/Y') }}</td>
                 <td>{{ $product->manufacturing_date->format('d/m/Y') }}</td>
                 <td>
